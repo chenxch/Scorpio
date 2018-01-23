@@ -31,9 +31,12 @@ export default {
 
 body {
   margin: 0;
+  position: fixed;
 }
 
 .block {
   display: inline-block;
+  height: 100vh;
+  float: left;
 }
 </style>
