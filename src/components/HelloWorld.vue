@@ -37,7 +37,7 @@ a {
 }
 
 .hello {
-  background-image: url("../assets/p2.jpg");
+  background-image: url("../assets/images/p2.jpg");
 }
 
 .hello::after {
@@ -51,7 +51,7 @@ a {
 }
 
 .head {
-  background-image: url("../assets/xc.jpg");
+  background-image: url("../assets/images/xc.jpg");
   width: 178px;
   height: 178px;
   border: 1px solid #d3d3d3;

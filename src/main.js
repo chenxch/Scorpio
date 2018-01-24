@@ -6,11 +6,17 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store/index'
+import Csshake from 'csshake'
+import animate from 'animate.css'
+
+
 
 Vue.config.productionTip = false
 
 // element-ui使用
 Vue.use(ElementUI)
+Vue.use(Csshake)
+Vue.use(animate)
 
 /* eslint-disable no-new */
 new Vue({

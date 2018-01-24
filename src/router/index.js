@@ -21,6 +21,16 @@ export default new Router({
       path: '/demo2',
       name: 'demo2',
       component: require('../components/demo/vuex2.vue').default
+    },
+    {
+      path: '/memorandum',
+      name: 'memorandum',
+      component: require('../components/memorandum/memorandum.vue').default
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: require('../components/about/about.vue').default
     }
   ]
 })

@@ -1,0 +1,48 @@
+<template>
+<div class="m-body">
+  <el-card class="box-card">
+    <div slot="header" class="clearfix">
+      <span>开发备忘录</span>
+    </div>
+    <div v-for="o in 4" :key="o" class="text item">
+      {{'列表内容 ' + o }}
+    </div>
+  </el-card>
+</div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {}
+  }
+}
+</script>
+<style>
+.m-body {
+  margin: 8px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both
+}
+
+.box-card {
+  width: 100%;
+  text-align: left;
+}
+</style>
