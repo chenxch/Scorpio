@@ -8,8 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store/index'
 import Csshake from 'csshake'
 import animate from 'animate.css'
-
-
+import "./assets/icon/iconfont.css";
 
 Vue.config.productionTip = false
 

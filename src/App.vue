@@ -1,19 +1,19 @@
 <template>
 <div>
   <div class="left">
-    <menu-left :isCollapse="isCollapse"></menu-left>
+    <menu-left :isCollapse="isCollapse" :isPlay="isPlay" @on-result-change="onResultChange"></menu-left>
   </div>
   <div class="right" :class="{'right-collapse':isCollapse}">
     <el-row>
       <div class="top">
-        <div class="top-icon" :class="{'top-icon-collapse':isCollapse}" @click="isCollapse = !isCollapse"><i class="el-icon-more"></i></div>
+        <div class="top-icon" :class="{'top-icon-collapse':isCollapse}" @click="isCollapse = !isCollapse"><i class="el-xicon-category"></i></div>
       </div>
     </el-row>
     <el-row>
       <router-view/>
     </el-row>
   </div>
-  <audio autoplay="autoplay" controls="controls" preload="auto" src="./assets/media/romeostune.mp3" v-show="false"></audio>
+  <audio ref="audioRef" :autoplay="isPlay" controls="controls" preload="auto" src="./assets/media/romeostune.mp3" v-show="false"></audio>
 </div>
 </template>
 
@@ -26,8 +26,25 @@ export default {
   },
   data() {
     return {
-      isCollapse: true
+      isCollapse: true,
+      isPlay: false
     };
+  },
+  methods: {
+    onResultChange(val) {
+      this.isPlay = val;
+    }
+  },
+  watch: {
+    isPlay() {
+      if (this.isPlay) {
+        this.$refs.audioRef.play();
+        this.isPlay = true;
+      } else {
+        this.$refs.audioRef.pause();
+        this.$refs.audioRef.currentTime = 0;
+      }
+    }
   }
 }
 </script>
@@ -77,6 +94,7 @@ body {
   width: 15px;
   height: 50px;
   display: inline-block;
+  cursor: pointer;
 
 }
 

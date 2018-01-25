@@ -4,8 +4,8 @@
     <div slot="header" class="clearfix">
       <span>开发备忘录</span>
     </div>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{'列表内容 ' + o }}
+    <div v-for="(o,$index) in mList" :key="o" class="text item">
+      {{$index+1 +'、'+ o }}
     </div>
   </el-card>
 </div>
@@ -14,7 +14,11 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      mList: [
+        '引入第三方icon,参考地址：http://blog.csdn.net/b376924098/article/details/78286880,该文章缺少了import操作 需注意'
+      ]
+    }
   }
 }
 </script>

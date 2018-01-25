@@ -7,7 +7,7 @@
   <div class="menu-title">Xc Vue</div>
   <el-menu :router="true" default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#005998" text-color="#fff" active-text-color="#ffd04b">
     <el-menu-item index="/">
-      <i class="el-icon-location-outline"></i>
+      <i class="el-xicon-home"></i>
       <span slot="title">首页</span>
     </el-menu-item>
     <el-submenu index="/">
@@ -22,16 +22,16 @@
       </el-menu-item-group>
     </el-submenu>
     <el-menu-item index="memorandum">
-      <i class="el-icon-tickets"></i>
+      <i class="el-xicon-text"></i>
       <span slot="title">开发备忘录</span>
     </el-menu-item>
     <el-menu-item index="about">
-      <i class="el-icon-document"></i>
+      <i class="el-xicon-account"></i>
       <span slot="title">关于作者</span>
     </el-menu-item>
   </el-menu>
-  <div class="animated bounceInDown imgWrap">
-    <img src="../../assets/images/music.gif" class="gif" />
+  <div class="animated bounceInDown imgWrap" @click="play = !play">
+    <img src="../../assets/images/music.gif" class="gif gif-animate" :class="{'animated flip':play}" />
   </div>
 </div>
 </template>
@@ -68,6 +68,7 @@
   position: absolute;
   bottom: 30px;
   width: 100%;
+  cursor: pointer;
 }
 
 .gif {
@@ -75,14 +76,21 @@
   height: 60px;
   border-radius: 30px;
 }
+
+.gif-animate {
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
 </style>
 
 <script>
 export default {
-  props: ['isCollapse'],
+  props: ['isCollapse', 'isPlay'],
   data() {
     return {
       // isCollapse: true
+      play: this.isPlay
     };
   },
   methods: {
@@ -97,6 +105,12 @@ export default {
       this.$router.push({
         path: 'demo'
       });
+    }
+  },
+  watch: {
+    play(newVal, oldVal) {
+      console.log(newVal);
+      this.$emit("on-result-change", newVal);
     }
   }
 }
