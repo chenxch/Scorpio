@@ -13,12 +13,12 @@
       <router-view/>
     </el-row>
   </div>
-  <audio ref="audioRef" :autoplay="isPlay" controls="controls" preload="auto" src="./assets/media/romeostune.mp3" v-show="false"></audio>
+  <audio ref="audioRef" :autoplay="isPlay" controls="controls" preload="auto" src="../../assets/media/romeostune.mp3" v-show="false"></audio>
 </div>
 </template>
 
 <script>
-import menuLeft from './components/menu/menu.vue';
+import menuLeft from '../../components/menu/menu.vue';
 export default {
   name: 'App',
   components: {
@@ -35,6 +35,12 @@ export default {
       this.isPlay = val;
     }
   },
+  // beforeCreate: function() {
+  //   // this.$router.push({
+  //   //   path: 'login.html'
+  //   // })
+  //   // window.location.href = "login.html"
+  // },
   watch: {
     isPlay() {
       if (this.isPlay) {

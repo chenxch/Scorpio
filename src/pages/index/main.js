@@ -2,13 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import router from '../../router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import store from './store/index'
+import store from '../../store/index'
 import Csshake from 'csshake'
 import animate from 'animate.css'
-import "./assets/icon/iconfont.css";
+import "../../assets/icon/iconfont.css";
 
 Vue.config.productionTip = false
 
@@ -16,7 +16,9 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Csshake)
 Vue.use(animate)
-
+router.beforeEach((to, from, next) => {
+  window.location.href = "login.html"
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
