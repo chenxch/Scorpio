@@ -95,7 +95,7 @@ body {
   height: 50px;
   display: inline-block;
   cursor: pointer;
-
+  margin-left: 20px;
 }
 
 .top-icon-collapse {

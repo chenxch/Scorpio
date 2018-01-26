@@ -4,7 +4,7 @@
     <el-radio-button :label="false">展开</el-radio-button>
     <el-radio-button :label="true">收起</el-radio-button>
   </el-radio-group> -->
-  <div class="menu-title">Xc Vue</div>
+  <div class="menu-title">Scorpio</div>
   <el-menu :router="true" default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#005998" text-color="#fff" active-text-color="#ffd04b">
     <el-menu-item index="/">
       <i class="el-xicon-home"></i>
@@ -12,7 +12,7 @@
     </el-menu-item>
     <el-submenu index="/">
       <template slot="title">
-          <i class="el-icon-menu"></i>
+          <i class="el-xicon-component"></i>
           <span slot="title">组件</span>
         </template>
       <el-menu-item-group>
