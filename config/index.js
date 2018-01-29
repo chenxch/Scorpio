@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/okayapi': {
+        target: 'http://hn1.api.okayapi.com/',
+        changeOrigin: true, //允许跨域
+        pathRewrite: {
+          '^/okayapi': ''
+        }
+      }
+    },
     index: path.resolve(__dirname, '../src/pages/login/login.html'),
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST

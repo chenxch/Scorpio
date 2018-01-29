@@ -14,8 +14,11 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
+    "axios": "^0.17.1",
     "csshake": "^1.5.3",
     "element-ui": "^2.0.11",
+    "js-md5": "^0.7.3",
+    "lodash": "^4.17.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

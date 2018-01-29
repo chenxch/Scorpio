@@ -1,7 +1,7 @@
 <template>
 <div>
   <!-- :style="{'background-image': 'url(../../assets/images/'+img+')'}" -->
-  <el-carousel height="100vh" indicator-position="none" arrow="never" interval="6000" class="carousel-index">
+  <el-carousel height="100vh" indicator-position="none" arrow="never" :interval=6000 class="carousel-index">
     <el-carousel-item v-for="item in bgImgs" :key="item">
       <div class="login-bg" :class="[item]" />
     </el-carousel-item>
@@ -33,6 +33,7 @@
 </div>
 </template>
 <script>
+import service from '../../service/service';
 export default {
   name: 'Login',
   data() {
@@ -41,6 +42,20 @@ export default {
       userName: '',
       passWord: ''
     }
+  },
+  created: function() {
+    var params = {
+      params: {
+        username: 'xc',
+        password: this.$md5('1'),
+        s: 'App.User.Login'
+      }
+    }
+    service.login(params).then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.info(error);
+    });
   }
 }
 </script>
