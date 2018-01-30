@@ -2,8 +2,9 @@ var md5 = require('js-md5');
 var axios = require('axios');
 module.exports = {
   login: function(params) {
-    let newParams = enryptData(params);
-    return axios.get('/okayapi', newParams);
+    let newParams = enryptData(params.params);
+    params.params = newParams;
+    return axios.get('/okayapi', params);
   }
 }
 const enryptData = (params) => {
