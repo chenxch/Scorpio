@@ -59,17 +59,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/pages/index/index.html',
+      template: 'index.html',
       inject: true,
       favicon: './favicon.ico'
     }),
-    new HtmlWebpackPlugin({
-      filename: 'login.html',
-      template: 'src/pages/login/login.html',
-      inject: true,
-      favicon: './favicon.ico',
-      chunks: ['login']
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: 'login.html',
+    //   template: 'src/pages/login/login.html',
+    //   inject: true,
+    //   favicon: './favicon.ico',
+    //   chunks: ['login']
+    // }),
     // copy custom static assets
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),

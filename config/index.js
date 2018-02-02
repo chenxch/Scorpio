@@ -11,15 +11,15 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/okayapi': {
-        target: 'http://hn1.api.okayapi.com/',
-        changeOrigin: true, //允许跨域
-        pathRewrite: {
-          '^/okayapi': ''
-        }
-      }
+      // '/okayapi': {
+      //   target: 'http://hn1.api.okayapi.com/',
+      //   changeOrigin: true, //允许跨域
+      //   pathRewrite: {
+      //     '^/okayapi': ''
+      //   }
+      // }
     },
-    index: path.resolve(__dirname, '../src/pages/index/index.html'),
+    index: path.resolve(__dirname, '../index.html'),
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
@@ -54,7 +54,7 @@ module.exports = {
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
-    login: path.resolve(__dirname, '../dist/login.html'),
+    // login: path.resolve(__dirname, '../dist/login.html'),
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',

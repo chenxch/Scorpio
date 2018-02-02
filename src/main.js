@@ -2,16 +2,22 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from '../../router'
+import router from './router'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import store from '../../store/index'
+import store from './store/index'
 import Csshake from 'csshake'
 import animate from 'animate.css'
-import "../../assets/icon/iconfont.css";
+import lodash from 'lodash'
+import md5 from 'js-md5'
+
+import "./assets/icon/iconfont.css";
+import 'element-ui/lib/theme-chalk/index.css'
 import {
   mapGetters
 } from 'vuex';
+
+Vue.prototype.$lodash = lodash;
+Vue.prototype.$md5 = md5;
 Vue.config.productionTip = false
 
 // element-ui使用
@@ -32,7 +38,9 @@ new Vue({
   created: function() {
     debugger;
     if (this.$store.state.stateUserName == '') {
-      window.location.href = "login.html";
+      this.$router.push({
+        path: 'login'
+      });
     }
   },
   template: '<App/>'

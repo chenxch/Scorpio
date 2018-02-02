@@ -78,11 +78,11 @@ export default {
         console.log(response.data);
         if (response.data.data.err_code == 0) {
           self.setStateUserName(self.userName);
-          window.location.href = "index";
+          this.$router.push({
+            path: 'index'
+          });
         }
       }).catch(error => {
-        self.setStateUserName(self.userName);
-        window.location.href = "index";
         console.info(error);
       });
     }

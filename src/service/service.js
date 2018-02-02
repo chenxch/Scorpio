@@ -4,7 +4,8 @@ module.exports = {
   login: function(params) {
     let newParams = enryptData(params.params);
     params.params = newParams;
-    return axios.get('/okayapi', params);
+    // return axios.get('/okayapi', params);
+    return axios.get('http://hn1.api.okayapi.com/', params);
   }
 }
 const enryptData = (params) => {

@@ -7,6 +7,7 @@
     <el-row>
       <div class="top">
         <div class="top-icon" :class="{'top-icon-collapse':isCollapse}" @click="isCollapse = !isCollapse"><i class="el-xicon-category"></i></div>
+        <div class="top-user pull-right">{{stateUserName}}</div>
       </div>
     </el-row>
     <el-row>
@@ -19,11 +20,15 @@
 
 <script>
 import menuLeft from '../../components/menu/menu.vue';
-
+import {
+  mapGetters
+} from 'vuex';
 export default {
   name: 'App',
   components: {
     menuLeft
+  },
+  computed: { ...mapGetters(['stateUserName'])
   },
   data() {
     return {
@@ -101,5 +106,11 @@ body {
 
 .top-icon-collapse {
   transform: rotate(90deg);
+}
+
+.top-user {
+  display: inline-block;
+  float: right;
+  margin-right: 50px;
 }
 </style>

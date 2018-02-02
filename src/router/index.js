@@ -7,32 +7,47 @@ import HelloWorld from '@/components/HelloWorld'
 Vue.use(Router)
 
 export default new Router({
-  base: 'index',
   mode: 'history',
   routes: [{
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect: '/index'
     },
     {
-      path: '/demo',
-      name: 'demo',
-      component: require('../components/demo/vuex.vue').default
+      path: '/index',
+      name: 'index',
+      component: require('../pages/index/Index.vue').default,
+      children: [{
+          path: '/',
+          name: 'index',
+          component: require('../components/HelloWorld.vue').default
+        },
+        {
+          path: '/index/demo',
+          name: 'demo',
+          component: require('../components/demo/vuex.vue').default
+        },
+        {
+          path: '/index/demo2',
+          name: 'demo2',
+          component: require('../components/demo/vuex2.vue').default
+        },
+        {
+          path: '/index/memorandum',
+          name: 'memorandum',
+          component: require('../components/memorandum/memorandum.vue').default
+        },
+        {
+          path: '/index/about',
+          name: 'about',
+          component: require('../components/about/about.vue').default
+        }
+      ]
     },
     {
-      path: '/demo2',
-      name: 'demo2',
-      component: require('../components/demo/vuex2.vue').default
-    },
-    {
-      path: '/memorandum',
-      name: 'memorandum',
-      component: require('../components/memorandum/memorandum.vue').default
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: require('../components/about/about.vue').default
+      path: '/login',
+      name: 'login',
+      component: require('../pages/login/Login.vue').default
     }
+
   ]
 })

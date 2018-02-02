@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       mList: [
-        '引入第三方icon,参考地址：http://blog.csdn.net/b376924098/article/details/78286880,该文章缺少了import操作 需注意'
+        '引入第三方icon,参考地址：http://blog.csdn.net/b376924098/article/details/78286880,该文章缺少了import操作 需注意',
+        '谷歌浏览器跨域过代理：https://www.cnblogs.com/laden666666/p/5544572.html'
       ]
     }
   }

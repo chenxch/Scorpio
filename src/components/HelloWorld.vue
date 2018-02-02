@@ -38,6 +38,7 @@ a {
 
 .hello {
   background-image: url("../assets/images/p2.jpg");
+  height: calc(100vh - 50px);
 }
 
 .hello::after {

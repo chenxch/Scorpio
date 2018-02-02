@@ -17,15 +17,15 @@
         </template>
       <el-menu-item-group>
         <span slot="title">分组一</span>
-        <el-menu-item index="demo">选项1</el-menu-item>
-        <el-menu-item index="demo2">选项2</el-menu-item>
+        <el-menu-item index="/index/demo">选项1</el-menu-item>
+        <el-menu-item index="/index/demo2">选项2</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
-    <el-menu-item index="memorandum">
+    <el-menu-item index="/index/memorandum">
       <i class="el-xicon-text"></i>
       <span slot="title">开发备忘录</span>
     </el-menu-item>
-    <el-menu-item index="about">
+    <el-menu-item index="/index/about">
       <i class="el-xicon-account"></i>
       <span slot="title">关于作者</span>
     </el-menu-item>
