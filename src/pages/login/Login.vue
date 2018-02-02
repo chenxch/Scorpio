@@ -18,14 +18,14 @@
     <el-row class="mrt-20">
       <el-col :span="2">&nbsp;</el-col>
       <el-col :span="20">
-        <el-input placeholder="密码" v-model="passWord"></el-input>
+        <el-input placeholder="密码" v-model="passWord" type="passWord"></el-input>
       </el-col>
       <el-col :span="2">&nbsp;</el-col>
     </el-row>
     <el-row class="mrt-20">
       <el-col :span="2">&nbsp;</el-col>
       <el-col :span="20">
-        <el-button type="primary" class="login-btn">登录</el-button>
+        <el-button type="primary" class="login-btn" @click="login">登录</el-button>
       </el-col>
       <el-col :span="2">&nbsp;</el-col>
     </el-row>
@@ -34,6 +34,10 @@
 </template>
 <script>
 import service from '../../service/service';
+import {
+  mapGetters,
+  mapActions
+} from 'vuex';
 export default {
   name: 'Login',
   data() {
@@ -43,19 +47,45 @@ export default {
       passWord: ''
     }
   },
+  computed: { ...mapGetters(['stateUserName'])
+  },
   created: function() {
-    var params = {
-      params: {
-        username: 'xc',
-        password: this.$md5('1'),
-        s: 'App.User.Login'
+    // var params = {
+    //   params: {
+    //     username: 'xc',
+    //     password: this.$md5('1'),
+    //     s: 'App.User.Login'
+    //   }
+    // }
+    // service.login(params).then(response => {
+    //   console.log(response);
+    // }).catch(error => {
+    //   console.info(error);
+    // });
+  },
+  methods: {
+    ...mapActions(['setStateUserName']),
+    login() {
+      var self = this;
+      var params = {
+        params: {
+          username: this.userName,
+          password: this.$md5(this.passWord),
+          s: 'App.User.Login'
+        }
       }
+      service.login(params).then(response => {
+        console.log(response.data);
+        if (response.data.data.err_code == 0) {
+          self.setStateUserName(self.userName);
+          window.location.href = "index";
+        }
+      }).catch(error => {
+        self.setStateUserName(self.userName);
+        window.location.href = "index";
+        console.info(error);
+      });
     }
-    service.login(params).then(response => {
-      console.log(response);
-    }).catch(error => {
-      console.info(error);
-    });
   }
 }
 </script>

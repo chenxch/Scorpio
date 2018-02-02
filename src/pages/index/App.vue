@@ -19,6 +19,7 @@
 
 <script>
 import menuLeft from '../../components/menu/menu.vue';
+
 export default {
   name: 'App',
   components: {
@@ -35,12 +36,6 @@ export default {
       this.isPlay = val;
     }
   },
-  // beforeCreate: function() {
-  //   // this.$router.push({
-  //   //   path: 'login.html'
-  //   // })
-  //   // window.location.href = "login.html"
-  // },
   watch: {
     isPlay() {
       if (this.isPlay) {

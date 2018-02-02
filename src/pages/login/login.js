@@ -5,6 +5,7 @@ import Login from './Login.vue'
 // import axios from 'axios'
 import lodash from 'lodash'
 import md5 from 'js-md5'
+import store from '../../store/index'
 // Vue.prototype.axios = axios;
 Vue.prototype.$lodash = lodash;
 Vue.prototype.$md5 = md5;
@@ -16,6 +17,7 @@ Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#login',
+  store,
   components: {
     Login
   },

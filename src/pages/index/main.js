@@ -9,16 +9,16 @@ import store from '../../store/index'
 import Csshake from 'csshake'
 import animate from 'animate.css'
 import "../../assets/icon/iconfont.css";
-
+import {
+  mapGetters
+} from 'vuex';
 Vue.config.productionTip = false
 
 // element-ui使用
 Vue.use(ElementUI)
 Vue.use(Csshake)
 Vue.use(animate)
-router.beforeEach((to, from, next) => {
-  window.location.href = "login.html"
-})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -26,6 +26,14 @@ new Vue({
   store,
   components: {
     App
+  },
+  computed: { ...mapGetters(['stateUserName'])
+  },
+  created: function() {
+    debugger;
+    if (this.$store.state.stateUserName == '') {
+      window.location.href = "login.html";
+    }
   },
   template: '<App/>'
 })

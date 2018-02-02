@@ -7,3 +7,12 @@ export const fun = ({
     msg: '我是修改后的数据...'
   });
 };
+
+export const setStateUserName = ({
+  commit
+}, stateUserName) => {
+  commit({
+    type: 'getStateUserName', //对应mutation.js中的getMsg方法
+    stateUserName: stateUserName
+  });
+};
